@@ -10,3 +10,7 @@ vim.keymap.set('n', '<leader>t', ':NvimTreeToggle <CR>') -- Toggle nvim tree ope
 vim.keymap.set('n', '<leader>hs', '<C-w>s<CR>') -- horizontal split
 vim.keymap.set('n', '<leader>vs', '<C-w>v<CR>') -- vertical split
 vim.keymap.set('n', '<leader><Tab>', '<C-^>') -- hop to previous file buffer
+vim.keymap.set('n', 'gs', function() -- hop to previous file buffer 
+    vim.cmd('vsplit')
+    vim.lsp.buf.definition()
+end, { noremap = true, silent = true })

@@ -4,7 +4,7 @@
 local autocmd_group = vim.api.nvim_create_augroup("Custom auto-commands", { clear = true})
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = { "*.go", "*.templ" },
+  pattern = { "*.go", "*.templ", "*.js", "*.jsx", "*.ts", "*.tsx" },
   desc = "Auto-format go files after saving",
   callback = function()
     local params = vim.lsp.util.make_range_params()

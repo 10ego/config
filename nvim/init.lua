@@ -175,8 +175,10 @@ require('lazy').setup({
         },
       sections = {
         lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff', 'diagnostics'},
-        lualine_c = {{'filename', path = 1}},
+        -- lualine_b = {'branch', 'diff', 'diagnostics'},
+        lualine_b = {'branch'},
+        lualine_c = {{'filename', path = 3}},
+        lualine_x = {},
         },
       },
     },
@@ -239,6 +241,8 @@ require('lazy').setup({
         'nvim-treesitter/nvim-treesitter-textobjects',
       },
       build = ':TSUpdate',
+      -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually)
+      update_cwd = false,
     },
 
     -- nvim-tree
@@ -388,7 +392,15 @@ vim.keymap.set('n', '<leader>sb', require 'telescope'.extensions.file_browser.fi
 
 -- [[ Configure Nvim Tree ]]
 vim.opt.termguicolors = true
-require("nvim-tree").setup()
+require("nvim-tree").setup({
+  filters = {
+    dotfiles = false
+  },
+  diagnostics={
+    enable=true,
+    show_on_dirs = true,
+  }
+})
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
