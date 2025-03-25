@@ -1,0 +1,9 @@
+# initial-command = /bin/zsh -c "tmux attach\\; choose-tree -Zs || read '?Create a default session?(y/n)' anwser && [[ \"${anwser}\" == \"y\" ]] && tmux"
+
+initial-command = /bin/zsh -c "tmux attach || tmux new-session || exec /bin/zsh"
+
+
+# Turn off ligatures
+font-feature=-calt
+font-feature=-liga
+font-feature=-dlig
