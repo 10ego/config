@@ -23,6 +23,14 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = autocmd_group,
 })
 
+vim.api.nvim_create_autocmd("TermOpen", {
+  group = vim.api.nvim_create_augroup("nvim-term", { clear = true }),
+  callback = function()
+    vim.opt.number = false
+    vim.opt.relativenumber = false
+  end,
+})
+
 --vim.api.nvim_exec([[
 --  autocmd BufWritePre *.sql silent! :SQLFmt
 --  ]], false) 

@@ -14,3 +14,11 @@ vim.keymap.set('n', 'gs', function() -- hop to previous file buffer
     vim.cmd('vsplit')
     vim.lsp.buf.definition()
 end, { noremap = true, silent = true })
+
+vim.keymap.set('n', '<leader>to', function() -- open small terminal at bottom
+    vim.cmd.vnew()
+    vim.cmd.term()
+    vim.cmd.wincmd("J")
+    vim.api.nvim_win_set_height(0, 5)
+end)
+-- vim.keymap.set('n', '<Esc><Esc>', '<C-\\><C-n>')
