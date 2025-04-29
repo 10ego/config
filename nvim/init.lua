@@ -224,6 +224,10 @@ require('lazy').setup({
 
     -- Fuzzy Finder (files, lsp, etc)
     {
+      'junegunn/fzf.vim',
+      dependencies = { 'junegunn/fzf' }
+    },
+    {
       'nvim-telescope/telescope.nvim',
       branch = '0.1.x',
       dependencies = {
